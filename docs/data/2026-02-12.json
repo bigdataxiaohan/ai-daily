@@ -1,0 +1,250 @@
+{
+  "date": "2026-02-12",
+  "meta": {
+    "generatedAt": "2026-02-12T14:02:49.079273+08:00",
+    "tz": "Asia/Shanghai",
+    "freshness": "pd",
+    "queriesRun": 20,
+    "subreddits": [
+      "LocalLLaMA",
+      "MachineLearning",
+      "OpenAI",
+      "AI_Agents"
+    ]
+  },
+  "items": [
+    {
+      "title": "Ray-Ban maker EssilorLuxottica says it more than tripled Meta AI glasses sales in 2025",
+      "url": "https://www.cnbc.com/2026/02/11/ray-ban-maker-essilorluxottica-triples-sales-of-meta-ai-glasses.html",
+      "description": "The two companies launched the first edition of the glasses in <strong>September 2021</strong>, but the device didn&#x27;t gain widespread attention until the second-generation launch in 2023. In September, EssilorLuxottica and Meta introduced a new Ray-Ban iteration, ...",
+      "host": "www.cnbc.com",
+      "published": null,
+      "category": "产品发布/模型更新",
+      "score": 3.55
+    },
+    {
+      "title": "[2602.10418] SecCodePRM: A Process Reward Model for Code Security",
+      "url": "https://arxiv.org/abs/2602.10418",
+      "description": "View a PDF of the paper titled SecCodePRM: A Process Reward Model for Code Security, by Weichen Yu and 6 other authors View PDF HTML (experimental) Abstract:Large Language Models are rapidly becoming core components of modern software development workflows, yet ensuring code security remains challenging.",
+      "host": "arxiv.org",
+      "published": null,
+      "category": "研究/论文",
+      "score": 0.75
+    },
+    {
+      "title": "[2602.10386] Colorful Talks with Graphs: Human-Interpretable Graph Encodings for Large Language Models",
+      "url": "https://arxiv.org/abs/2602.10386",
+      "description": "By capturing both local and global-range dependencies, our method enhances LLM performance especially on graph tasks that require reasoning over global graph structure. From: Angelo Zangari [view email] [v1] Wed, 11 Feb 2026 00:15:29 UTC (218 KB) ... View a PDF of the paper titled Colorful Talks with Graphs: Human-Interpretable Graph Encodings for Large Language Models, by Angelo Zangari and 2 other authors ... arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website.",
+      "host": "arxiv.org",
+      "published": null,
+      "category": "研究/论文",
+      "score": 0.4
+    },
+    {
+      "title": "[2602.10485] Abstraction Generation for Generalized Planning with Pretrained Large Language Models",
+      "url": "https://arxiv.org/abs/2602.10485",
+      "description": "Recent works show that large language models (LLMs) can function as generalized planners. This work investigates whether LLMs can serve as QNP abstraction generators for GP problems and how to fix abstractions via automated debugging. We propose a prompt protocol: input a GP domain and training tasks to LLMs, prompting them to generate abstract features and further abstract the initial state, action set, and goal into QNP problems. An automated debugging method is designed to detect abstraction errors, guiding LLMs to fix abstractions.",
+      "host": "arxiv.org",
+      "published": null,
+      "category": "研究/论文",
+      "score": 0.4
+    },
+    {
+      "title": "[2601.21204] Scaling Embeddings Outperforms Scaling Experts in Language Models",
+      "url": "https://arxiv.org/abs/2601.21204",
+      "description": "View a PDF of the paper titled <strong>Scaling Embeddings Outperforms Scaling Experts in Language Models, by Hong Liu and 15 other authors View PDF HTML (experimental) Abstract:While Mixture-of-Experts (MoE) architectures have become the standard for sparsity scaling</strong> ...",
+      "host": "arxiv.org",
+      "published": null,
+      "category": "研究/论文",
+      "score": 0.4
+    },
+    {
+      "title": "[2602.10382] Triggers Hijack Language Circuits: A Mechanistic Analysis of Backdoor Behaviors in Large Language Models",
+      "url": "https://arxiv.org/abs/2602.10382",
+      "description": "From: Théo Lasnier [view email] [v1] Wed, 11 Feb 2026 00:04:32 UTC (197 KB) ... View a PDF of the paper titled <strong>Triggers Hijack Language Circuits</strong>: A Mechanistic Analysis of Backdoor Behaviors in Large Language Models, by Th\\&#x27;eo ...",
+      "host": "arxiv.org",
+      "published": null,
+      "category": "研究/论文",
+      "score": 0.4
+    },
+    {
+      "title": "[2602.10467] MERIT Feedback Elicits Better Bargaining in LLM Negotiators",
+      "url": "https://arxiv.org/abs/2602.10467",
+      "description": "Abstract:Bargaining is often regarded ... yet Large Language Models (LLMs) still struggle to navigate it due to limited strategic depth and difficulty adapting to complex human factors. Current benchmarks rarely capture this limitation. To bridge this gap, we present an utility feedback centric framework. Our contributions are: (i) AgoraBench, a new benchmark ...",
+      "host": "arxiv.org",
+      "published": null,
+      "category": "研究/论文",
+      "score": 0.4
+    }
+  ],
+  "reddit": [
+    {
+      "subreddit": "LocalLLaMA",
+      "title": "Announcing LocalLlama discord server &amp; bot!",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1mpk2va/announcing_localllama_discord_server_bot/",
+      "score": 119,
+      "comments": 66
+    },
+    {
+      "subreddit": "LocalLLaMA",
+      "title": "Z.ai said they are GPU starved, openly.",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r26zsg/zai_said_they_are_gpu_starved_openly/",
+      "score": 997,
+      "comments": 170
+    },
+    {
+      "subreddit": "LocalLLaMA",
+      "title": "#SaveLocalLLaMA",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r2e8mp/savelocalllama/",
+      "score": 263,
+      "comments": 47
+    },
+    {
+      "subreddit": "LocalLLaMA",
+      "title": "GLM-5 scores 50 on the Intelligence Index and is the new open weights leader!",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r28xxz/glm5_scores_50_on_the_intelligence_index_and_is/",
+      "score": 356,
+      "comments": 84
+    },
+    {
+      "subreddit": "LocalLLaMA",
+      "title": "GLM-5 Officially Released",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r22hlq/glm5_officially_released/",
+      "score": 648,
+      "comments": 132
+    },
+    {
+      "subreddit": "LocalLLaMA",
+      "title": "Unsloth just unleashed Glm 5! GGUF NOW!",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r2i4lw/unsloth_just_unleashed_glm_5_gguf_now/",
+      "score": 59,
+      "comments": 21
+    },
+    {
+      "subreddit": "MachineLearning",
+      "title": "[D] Self-Promotion Thread",
+      "url": "https://www.reddit.com/r/MachineLearning/comments/1qtjnbc/d_selfpromotion_thread/",
+      "score": 5,
+      "comments": 22
+    },
+    {
+      "subreddit": "MachineLearning",
+      "title": "[D] Monthly Who's Hiring and Who wants to be Hired?",
+      "url": "https://www.reddit.com/r/MachineLearning/comments/1qrrayn/d_monthly_whos_hiring_and_who_wants_to_be_hired/",
+      "score": 14,
+      "comments": 7
+    },
+    {
+      "subreddit": "MachineLearning",
+      "title": "[R] ICLR: Guess which peer review is human or AI?",
+      "url": "https://www.reddit.com/r/MachineLearning/comments/1r28sy7/r_iclr_guess_which_peer_review_is_human_or_ai/",
+      "score": 26,
+      "comments": 17
+    },
+    {
+      "subreddit": "MachineLearning",
+      "title": "[P] Graph Representation Learning Help",
+      "url": "https://www.reddit.com/r/MachineLearning/comments/1r2gpz6/p_graph_representation_learning_help/",
+      "score": 4,
+      "comments": 3
+    },
+    {
+      "subreddit": "MachineLearning",
+      "title": "[D] Is a KDD publication considered prestigious for more theoretical results?",
+      "url": "https://www.reddit.com/r/MachineLearning/comments/1r2l6w4/d_is_a_kdd_publication_considered_prestigious_for/",
+      "score": 1,
+      "comments": 4
+    },
+    {
+      "subreddit": "MachineLearning",
+      "title": "[R] Update: Frontier LLMs' Willingness to Persuade on Harmful Topics—GPT &amp; Claude Improved, Gemini Regressed",
+      "url": "https://www.reddit.com/r/MachineLearning/comments/1r216b4/r_update_frontier_llms_willingness_to_persuade_on/",
+      "score": 7,
+      "comments": 1
+    },
+    {
+      "subreddit": "OpenAI",
+      "title": "Sora 2 megathread (part 3)",
+      "url": "https://www.reddit.com/r/OpenAI/comments/1o8kmg9/sora_2_megathread_part_3/",
+      "score": 299,
+      "comments": 9724
+    },
+    {
+      "subreddit": "OpenAI",
+      "title": "AMA on our DevDay Launches",
+      "url": "https://www.reddit.com/r/OpenAI/comments/1o1j23g/ama_on_our_devday_launches/",
+      "score": 117,
+      "comments": 528
+    },
+    {
+      "subreddit": "OpenAI",
+      "title": "In the past week alone:",
+      "url": "https://www.reddit.com/r/OpenAI/comments/1r25bh7/in_the_past_week_alone/",
+      "score": 2574,
+      "comments": 405
+    },
+    {
+      "subreddit": "OpenAI",
+      "title": "Oh my God, the update that they did at 5.2 is absolutely insane.",
+      "url": "https://www.reddit.com/r/OpenAI/comments/1r221yu/oh_my_god_the_update_that_they_did_at_52_is/",
+      "score": 740,
+      "comments": 431
+    },
+    {
+      "subreddit": "OpenAI",
+      "title": "Me, a tech worker, when my white collar friends realize AI jeopardizes their position too",
+      "url": "https://www.reddit.com/r/OpenAI/comments/1r2903c/me_a_tech_worker_when_my_white_collar_friends/",
+      "score": 165,
+      "comments": 35
+    },
+    {
+      "subreddit": "OpenAI",
+      "title": "OpenAI Is Making the Mistakes Facebook Made. I Quit.",
+      "url": "https://www.reddit.com/r/OpenAI/comments/1r1z1jl/openai_is_making_the_mistakes_facebook_made_i_quit/",
+      "score": 432,
+      "comments": 137
+    },
+    {
+      "subreddit": "AI_Agents",
+      "title": "Weekly Thread: Project Display",
+      "url": "https://www.reddit.com/r/AI_Agents/comments/1r22uuw/weekly_thread_project_display/",
+      "score": 1,
+      "comments": 9
+    },
+    {
+      "subreddit": "AI_Agents",
+      "title": "Weekly Thread: Project Display",
+      "url": "https://www.reddit.com/r/AI_Agents/comments/1qvu2c4/weekly_thread_project_display/",
+      "score": 4,
+      "comments": 23
+    },
+    {
+      "subreddit": "AI_Agents",
+      "title": "I just closed a $5,400 AI agent deal and I'm still shaking",
+      "url": "https://www.reddit.com/r/AI_Agents/comments/1r255jl/i_just_closed_a_5400_ai_agent_deal_and_im_still/",
+      "score": 165,
+      "comments": 148
+    },
+    {
+      "subreddit": "AI_Agents",
+      "title": "My experience with 8 AI music agents.",
+      "url": "https://www.reddit.com/r/AI_Agents/comments/1r2gjau/my_experience_with_8_ai_music_agents/",
+      "score": 4,
+      "comments": 7
+    },
+    {
+      "subreddit": "AI_Agents",
+      "title": "Anyone Else Feel “Late” to AI Agents?",
+      "url": "https://www.reddit.com/r/AI_Agents/comments/1r1y06r/anyone_else_feel_late_to_ai_agents/",
+      "score": 34,
+      "comments": 40
+    },
+    {
+      "subreddit": "AI_Agents",
+      "title": "Why are current AI agents emphasizing \"memory continuity\"?",
+      "url": "https://www.reddit.com/r/AI_Agents/comments/1r2ff00/why_are_current_ai_agents_emphasizing_memory/",
+      "score": 4,
+      "comments": 8
+    }
+  ]
+}
