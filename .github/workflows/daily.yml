@@ -2,9 +2,6 @@ name: Daily AI Intel
 
 on:
   workflow_dispatch: {}
-  schedule:
-    # 08:00 Asia/Shanghai == 00:00 UTC
-    - cron: '0 0 * * *'
 
 permissions:
   contents: read

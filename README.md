@@ -17,23 +17,33 @@
   - `docs/d/YYYY-MM-DD.html`（归档）
   - `docs/data/YYYY-MM-DD.json`（结构化数据，适合二次加工做素材）
 
-## 部署（推荐：GitHub Actions -> Pages）
+## 部署（两种方式二选一）
 
-1) 新建 GitHub 仓库，把本目录内容推上去。
+### 方式 A：本机定时生成 + git push（不依赖 GitHub Actions）
 
-2) 在 GitHub 仓库设置 Secrets：
+1) 在服务器上保证 `BRAVE_API_KEY` 可用（推荐放到 `~/.openclaw/.env`）。
 
-- `BRAVE_API_KEY`：Brave Search API Key
-
-（可选）
-- `REDDIT_SUBREDDITS`：逗号分隔，如 `LocalLLaMA,MachineLearning,OpenAI,AI_Agents`
-
-3) 开启 Pages：
-
+2) GitHub Pages 设置：
 - Settings -> Pages
+- Source 选 **Deploy from a branch**
+- Branch 选 `main`，Folder 选 `/docs`
+
+3) 在服务器上加 crontab（每天 08:00 北京时间跑一次）：
+
+```bash
+0 8 * * * bash -lc '/root/.openclaw/workspace/ai-daily-intel/scripts/run_and_push.sh' >>/root/.openclaw/workspace/ai-daily-intel/logs/cron.log 2>&1
+```
+
+### 方式 B：GitHub Actions -> Pages（不依赖服务器常驻任务）
+
+1) 在 GitHub 仓库设置 Secrets：
+- `BRAVE_API_KEY`：Brave Search API Key
+（可选）`REDDIT_SUBREDDITS`
+
+2) Settings -> Pages
 - Source: **GitHub Actions**
 
-4) 等待定时任务运行，或手动触发 workflow。
+3) 触发 workflow。
 
 ## 本地运行
 
