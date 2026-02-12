@@ -14,8 +14,9 @@
   - Reddit 热门（可配置 subreddits）
 - 输出：
   - `docs/index.html`（最新一期）
-  - `docs/d/YYYY-MM-DD.html`（归档）
-  - `docs/data/YYYY-MM-DD.json`（结构化数据，适合二次加工做素材）
+  - `docs/d/YYYY-MM-DD_HHMM.html`（按小时/时间点归档快照）
+  - `docs/data/YYYY-MM-DD_HHMM.json`（结构化数据，适合二次加工做素材）
+  - `docs/archive.html`（归档索引）
 
 ## 部署（两种方式二选一）
 

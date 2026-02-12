@@ -6,9 +6,10 @@ Inputs
 - REDDIT_SUBREDDITS (optional, comma-separated)
 
 Outputs
-- docs/index.html (latest)
-- docs/d/YYYY-MM-DD.html (archive)
-- docs/data/YYYY-MM-DD.json (structured)
+- docs/index.html (latest run)
+- docs/d/YYYY-MM-DD_HHMM.html (archive snapshots)
+- docs/data/YYYY-MM-DD_HHMM.json (structured snapshots)
+- docs/archive.html (archive index)
 
 Notes
 - This is heuristic news triage based on headline+snippet (no full-article parsing).
@@ -36,37 +37,43 @@ BRAVE_ENDPOINT = "https://api.search.brave.com/res/v1/web/search"
 TZ = ZoneInfo("Asia/Shanghai")
 
 CATEGORY_QUERIES: dict[str, list[str]] = {
+    # Prefer Chinese discovery (zh/CN) while keeping a few global queries.
     "产品发布/模型更新": [
-        "OpenAI release OR launch OR announcement",
-        "Anthropic Claude release OR announcement",
-        "Google DeepMind AI release OR announcement",
-        "Meta AI release OR announcement",
-        "NVIDIA AI announcement OR chips launch",
+        "大模型 发布 更新 版本",
+        "OpenAI 发布 更新 announcement",
+        "Claude 发布 更新 Anthropic",
+        "Gemini 发布 更新 Google",
+        "Meta AI 发布 更新",
+        "NVIDIA AI 芯片 发布",
     ],
     "开源/工具爆款": [
-        "GitHub trending AI agent open source",
-        "Hugging Face trending model AI",
-        "open source AI agent framework released",
-        "LLM toolchain open-source release",
+        "GitHub Trending AI 开源",
+        "Hugging Face trending 模型",
+        "开源 AI Agent 框架 发布",
+        "RAG 框架 开源 发布",
+        "MCP server 开源 发布",
     ],
     "融资/商业": [
-        "AI startup funding seed series",
-        "AI acquisition startup",
-        "AI enterprise platform launch",
+        "AI 融资 种子 轮 A 轮 B 轮",
+        "AI 初创 收购 并购",
+        "AI 产品 发布 商业化",
     ],
     "研究/论文": [
-        "site:arxiv.org large language model new method",
-        "state of the art AI paper this week",
+        "site:arxiv.org 大语言模型 方法",
+        "多模态 论文 arXiv",
+        "diffusion language model SOAR arXiv",
     ],
     "监管/政策": [
-        "AI regulation policy update",
-        "EU AI Act update",
-        "AI governance policy",
+        "人工智能 监管 政策 最新",
+        "欧盟 AI 法案 最新",
+        "中国 人工智能 管理 办法",
+        "AI 芯片 出口管制 政策",
     ],
     "安全/事故": [
-        "AI security incident leak",
-        "LLM jailbreak vulnerability",
-        "AI model data breach",
+        "大模型 数据泄露 事件",
+        "LLM 越狱 漏洞 jailbreak",
+        "AI 安全 漏洞 事件",
+        "训练数据 泄露 大模型",
     ],
 }
 
@@ -107,6 +114,22 @@ PREFERRED_HOSTS = {
     "ai.google",
     "deepmind.google",
     "www.nvidia.com",
+
+    # Chinese high-signal outlets / portals
+    "36kr.com",
+    "www.36kr.com",
+    "jiqizhixin.com",
+    "www.jiqizhixin.com",
+    "qbitai.com",
+    "www.qbitai.com",
+    "leiphone.com",
+    "www.leiphone.com",
+    "tmtpost.com",
+    "www.tmtpost.com",
+    "ithome.com",
+    "www.ithome.com",
+    "xinhuanet.com",
+    "www.xinhuanet.com",
 }
 
 COMMUNITY_HOSTS = {
@@ -147,7 +170,7 @@ def load_brave_api_key() -> str:
     return k
 
 
-def brave_search(query: str, *, freshness: str = "pd", count: int = 6, country: str = "US", search_lang: str = "en") -> list[dict[str, Any]]:
+def brave_search(query: str, *, freshness: str = "pd", count: int = 6, country: str = "CN", search_lang: str = "zh-hans") -> list[dict[str, Any]]:
     key = load_brave_api_key()
     params = {
         "q": query,
@@ -281,7 +304,15 @@ def reddit_fetch(subreddit: str, *, kind: str = "hot", limit: int = 8) -> list[d
     return out
 
 
-def render_html(date_str: str, *, items: list[NewsItem], reddit: list[dict[str, Any]], meta: dict[str, Any]) -> str:
+def render_html(
+    label: str,
+    *,
+    items: list[NewsItem],
+    reddit: list[dict[str, Any]],
+    meta: dict[str, Any],
+    css_href: str,
+    archive_href: str,
+) -> str:
     def esc(s: str) -> str:
         return html.escape(s or "", quote=True)
 
@@ -338,14 +369,14 @@ def render_html(date_str: str, *, items: list[NewsItem], reddit: list[dict[str, 
     html_lines: list[str] = []
     html_lines.append("<!doctype html><html><head><meta charset='utf-8'>")
     html_lines.append("<meta name='viewport' content='width=device-width, initial-scale=1' />")
-    html_lines.append("<link rel='stylesheet' href='./assets/style.css' />")
-    html_lines.append("<title>AI 日报 | " + esc(date_str) + "</title></head><body>")
+    html_lines.append("<link rel='stylesheet' href='" + esc(css_href) + "' />")
+    html_lines.append("<title>AI 日报 | " + esc(label) + "</title></head><body>")
 
     html_lines.append("<div class='wrap'>")
     html_lines.append("<div class='hero'>")
     html_lines.append("<div class='h1'>AI 日报 + 情报监控</div>")
     html_lines.append(
-        "<div class='sub'>日期：" + esc(date_str) + "（北京时间）<br/>"
+        "<div class='sub'>日期：" + esc(label) + "（北京时间）<br/>"
         + "来源：Brave Search（headline+snippet） + Reddit（best-effort）"
         + "</div>"
     )
@@ -409,12 +440,12 @@ def render_html(date_str: str, *, items: list[NewsItem], reddit: list[dict[str, 
         html_lines.append("</div>")
         html_lines.append("</div>")
 
-    html_lines.append("<div class='foot'>Archive: <a href='./archive.html'>历史归档</a></div>")
+    html_lines.append("<div class='foot'>Archive: <a href='" + esc(archive_href) + "'>历史归档</a></div>")
     html_lines.append("</div></body></html>")
     return "\n".join(html_lines)
 
 
-def write_archive_index(dates: list[str]) -> str:
+def write_archive_index(entries: list[tuple[str, str]]) -> str:
     def esc(s: str) -> str:
         return html.escape(s or "", quote=True)
 
@@ -428,8 +459,14 @@ def write_archive_index(dates: list[str]) -> str:
     lines.append("<div class='section'>")
     lines.append("<div class='card'>")
     lines.append("<ol style='margin:0;padding-left:18px'>")
-    for d in dates:
-        lines.append(f"<li style='margin:8px 0'><a href='./d/{esc(d)}.html' style='color:#0b57d0;text-decoration:none;font-weight:900'>{esc(d)}</a></li>")
+    for rid, label in entries:
+        lines.append(
+            "<li style='margin:8px 0'><a href='./d/"
+            + esc(rid)
+            + ".html' style='color:#0b57d0;text-decoration:none;font-weight:900'>"
+            + esc(label)
+            + "</a></li>"
+        )
     lines.append("</ol>")
     lines.append("</div>")
     lines.append("</div>")
@@ -440,6 +477,8 @@ def write_archive_index(dates: list[str]) -> str:
 def main() -> int:
     now = datetime.now(TZ)
     date_str = now.strftime("%Y-%m-%d")
+    run_id = now.strftime("%Y-%m-%d_%H%M")
+    label = now.strftime("%Y-%m-%d %H:%M")
 
     docs_dir = os.path.join(os.path.dirname(__file__), "..", "docs")
     docs_dir = os.path.abspath(docs_dir)
@@ -493,13 +532,18 @@ def main() -> int:
     meta = {
         "generatedAt": now.isoformat(),
         "tz": "Asia/Shanghai",
+        "runId": run_id,
+        "label": label,
         "freshness": "pd",
+        "brave": {"country": "CN", "search_lang": "zh-hans"},
         "queriesRun": queries_run,
         "subreddits": sub_list,
     }
 
     payload = {
         "date": date_str,
+        "runId": run_id,
+        "label": label,
         "meta": meta,
         "items": [
             {
@@ -516,28 +560,59 @@ def main() -> int:
         "reddit": reddit,
     }
 
-    json_path = os.path.join(data_dir, f"{date_str}.json")
+    json_path = os.path.join(data_dir, f"{run_id}.json")
     with open(json_path, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
 
-    html_out = render_html(date_str, items=raw, reddit=reddit, meta=meta)
+    # Convenience handle for clients.
+    with open(os.path.join(data_dir, "latest.json"), "w", encoding="utf-8") as f:
+        json.dump(payload, f, ensure_ascii=False, indent=2)
 
-    day_path = os.path.join(d_dir, f"{date_str}.html")
+    html_index = render_html(
+        label,
+        items=raw,
+        reddit=reddit,
+        meta=meta,
+        css_href="assets/style.css",
+        archive_href="archive.html",
+    )
+    html_day = render_html(
+        label,
+        items=raw,
+        reddit=reddit,
+        meta=meta,
+        css_href="../assets/style.css",
+        archive_href="../archive.html",
+    )
+
+    day_path = os.path.join(d_dir, f"{run_id}.html")
     with open(day_path, "w", encoding="utf-8") as f:
-        f.write(html_out)
+        f.write(html_day)
 
-    # index points to latest (copy)
+    # index points to latest
     idx_path = os.path.join(docs_dir, "index.html")
     with open(idx_path, "w", encoding="utf-8") as f:
-        f.write(html_out.replace("./archive.html", "archive.html"))
+        f.write(html_index)
 
-    # archive
-    dates = []
+    # archive index (all snapshots, prefer hourly stamps)
+    rows: list[tuple[str, str, str]] = []
     for name in os.listdir(d_dir):
-        if name.endswith(".html") and re.match(r"\d{4}-\d{2}-\d{2}\.html$", name):
-            dates.append(name[:-5])
-    dates.sort(reverse=True)
-    archive_html = write_archive_index(dates)
+        if not name.endswith(".html"):
+            continue
+        stem = name[:-5]
+        m = re.match(r"^(\d{4}-\d{2}-\d{2})_(\d{2})(\d{2})$", stem)
+        if not m:
+            # ignore legacy date-only archives
+            continue
+        d, hh, mm = m.group(1), m.group(2), m.group(3)
+        sort_key = f"{d}_{hh}{mm}"
+        label2 = f"{d} {hh}:{mm}"
+        rows.append((sort_key, stem, label2))
+
+    rows.sort(reverse=True)
+    entries = [(stem, label2) for _k, stem, label2 in rows]
+
+    archive_html = write_archive_index(entries)
     with open(os.path.join(docs_dir, "archive.html"), "w", encoding="utf-8") as f:
         f.write(archive_html)
 
