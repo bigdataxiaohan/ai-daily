@@ -117,19 +117,30 @@ PREFERRED_HOSTS = {
 
     # Chinese high-signal outlets / portals
     "36kr.com",
-    "www.36kr.com",
     "jiqizhixin.com",
-    "www.jiqizhixin.com",
     "qbitai.com",
-    "www.qbitai.com",
     "leiphone.com",
-    "www.leiphone.com",
     "tmtpost.com",
-    "www.tmtpost.com",
     "ithome.com",
-    "www.ithome.com",
     "xinhuanet.com",
-    "www.xinhuanet.com",
+    "caixin.com",
+    "thepaper.cn",
+    "www.thepaper.cn",
+    "yicai.com",
+    "www.yicai.com",
+}
+
+CN_HOST_BASES = {
+    "36kr.com",
+    "jiqizhixin.com",
+    "qbitai.com",
+    "leiphone.com",
+    "tmtpost.com",
+    "ithome.com",
+    "xinhuanet.com",
+    "caixin.com",
+    "thepaper.cn",
+    "yicai.com",
 }
 
 COMMUNITY_HOSTS = {
@@ -218,12 +229,22 @@ def is_blocked(host: str, title: str, desc: str) -> bool:
     return any(x in t for x in ("sponsored", "press release", "wikipedia"))
 
 
-def is_allowed(host: str) -> bool:
-    h = (host or "").lower()
+def _host_matches(host: str, bases: set[str]) -> bool:
+    h = (host or "").lower().strip(".")
     if not h:
         return False
-    allow = set(PREFERRED_HOSTS) | set(COMMUNITY_HOSTS) | {"arxiv.org", "www.arxiv.org", "substack.com", "www.substack.com"}
-    return h in allow or (h.startswith("www.") and h[4:] in allow)
+    if h in bases:
+        return True
+    # allow common subdomains like m., cn., www.
+    return any(h.endswith("." + b) for b in bases)
+
+
+def is_allowed(host: str) -> bool:
+    h = (host or "").lower().strip(".")
+    if not h:
+        return False
+    allow_bases = set(PREFERRED_HOSTS) | set(COMMUNITY_HOSTS) | {"arxiv.org", "substack.com"}
+    return _host_matches(h, allow_bases)
 
 
 def parse_ts(s: str | None) -> float:
@@ -238,24 +259,42 @@ def parse_ts(s: str | None) -> float:
         return 0.0
 
 
-def score_item(host: str, title: str, published: str | None, category: str) -> float:
-    h = (host or "").lower()
+def looks_chinese(s: str) -> bool:
+    # Quick heuristic: any CJK Unified Ideographs.
+    s = s or ""
+    return any("\u4e00" <= ch <= "\u9fff" for ch in s)
+
+
+def score_item(host: str, title: str, published: str | None, category: str, desc: str = "") -> float:
+    h = (host or "").lower().strip(".")
     base = 0.0
-    if h in PREFERRED_HOSTS:
+
+    if _host_matches(h, set(PREFERRED_HOSTS)):
         base += 2.2
-    elif h in COMMUNITY_HOSTS:
+    elif _host_matches(h, set(COMMUNITY_HOSTS)):
         base += 1.4
     elif h:
         base += 0.4
+
+    # Prefer Chinese sources/content ("以中文资讯为主")
+    if _host_matches(h, CN_HOST_BASES):
+        base += 0.8
+    if looks_chinese(title) or looks_chinese(desc):
+        base += 0.7
 
     if category in ("产品发布/模型更新", "开源/工具爆款"):
         base += 1.0
 
     tl = (title or "").lower()
+    tzh = title or ""
     if any(w in tl for w in ("launch", "release", "announce", "introduc", "beta")):
         base += 0.6
+    if any(w in tzh for w in ("发布", "上线", "开源", "更新", "推出", "正式", "版本")):
+        base += 0.45
     if any(w in tl for w in ("security", "leak", "breach", "ban", "lawsuit", "vulnerability")):
         base += 0.35
+    if any(w in tzh for w in ("泄露", "漏洞", "越狱", "事故", "封禁", "诉讼")):
+        base += 0.25
 
     ts = parse_ts(published)
     if ts:
@@ -338,21 +377,63 @@ def render_html(
         return 1
 
     def pill(text_: str, bg: str) -> str:
-        return (
-            "<span class='pill' style='background:" + bg + "'>" + esc(text_) + "</span>"
-        )
+        return "<span class='pill' style='background:" + bg + "'>" + esc(text_) + "</span>"
+
+    OFFICIAL_BASES = {
+        "openai.com",
+        "anthropic.com",
+        "ai.google",
+        "blog.google",
+        "deepmind.google",
+        "nvidia.com",
+    }
+    MAINSTREAM_BASES = {
+        "reuters.com",
+        "ft.com",
+        "bloomberg.com",
+        "cnbc.com",
+        "techcrunch.com",
+        "theverge.com",
+        "wired.com",
+        "nytimes.com",
+        "wsj.com",
+    }
+
+    def source_tag(hostname: str, title: str, desc: str) -> str:
+        h = (hostname or "").lower().strip(".")
+        if _host_matches(h, OFFICIAL_BASES):
+            return pill("官宣", "#0F766E")
+        if _host_matches(h, MAINSTREAM_BASES):
+            return pill("主流媒体", "#1D4ED8")
+        if _host_matches(h, CN_HOST_BASES):
+            return pill("中文资讯", "#BE123C")
+        if _host_matches(h, set(COMMUNITY_HOSTS)):
+            return pill("开源/社区", "#7C3AED")
+        if _host_matches(h, {"arxiv.org"}):
+            return pill("论文", "#475569")
+        if looks_chinese(title) or looks_chinese(desc):
+            return pill("中文资讯", "#BE123C")
+        return pill("资讯", "#374151")
+
+    def lang_tag(title: str, desc: str) -> str:
+        if looks_chinese(title) or looks_chinese(desc):
+            return pill("中文", "#166534")
+        return pill("EN", "#6B7280")
 
     def card(idx: int, it: NewsItem) -> str:
         k = stars(it.score)
         heat = pill("热度 " + "★" * k, heat_color.get(k, "#666"))
-        cat = pill(it.category, cat_color.get(it.category, "#666"))
+        catc = cat_color.get(it.category, "#666")
+        cat = pill(it.category, catc)
+        src = source_tag(it.hostname, it.title, it.description)
+        lang = lang_tag(it.title, it.description)
         title = clip(it.title, 120)
         desc = clip(it.description, 200)
         btn = f"<a class='btn' href='{esc(it.url)}'>打开链接</a>"
         parts = []
-        parts.append("<div class='card'>")
+        parts.append("<div class='card' style='border-left:6px solid " + esc(catc) + "'>")
         parts.append("<div class='row'>")
-        parts.append("<div style='display:flex;gap:8px;flex-wrap:wrap'>" + heat + cat + "</div>")
+        parts.append("<div style='display:flex;gap:8px;flex-wrap:wrap'>" + heat + cat + src + lang + "</div>")
         parts.append("</div>")
         parts.append(f"<div class='title'>{idx:02d}. <a href='{esc(it.url)}'>{esc(title)}</a></div>")
         if desc:
@@ -382,8 +463,14 @@ def render_html(
     )
 
     # Chips
+    cn_cnt = 0
+    for it in items:
+        if _host_matches((it.hostname or "").lower(), CN_HOST_BASES) or looks_chinese(it.title) or looks_chinese(it.description):
+            cn_cnt += 1
+
     html_lines.append("<div class='chips'>")
     html_lines.append("<span class='chip'>总条目 " + str(len(items)) + "</span>")
+    html_lines.append("<span class='chip'>中文条目 " + str(cn_cnt) + "</span>")
     html_lines.append("<span class='chip'>Reddit 条目 " + str(len(reddit)) + "</span>")
     html_lines.append("<span class='chip'>freshness=" + esc(str(meta.get("freshness") or "pd")) + "</span>")
     html_lines.append("</div>")
@@ -391,7 +478,7 @@ def render_html(
 
     # Highlights (top 10)
     html_lines.append("<div class='section'>")
-    html_lines.append("<div class='section-title'>今日重点（Top）</div>")
+    html_lines.append("<div class='section-title'><span class='dot' style='background:#111827'></span>今日重点（Top）</div>")
     html_lines.append("<div class='grid'>")
     for i, it in enumerate(items[:10], 1):
         html_lines.append(card(i, it))
@@ -404,7 +491,8 @@ def render_html(
         if not lst:
             continue
         html_lines.append("<div class='section'>")
-        html_lines.append("<div class='section-title'>" + esc(cat) + "（" + str(len(lst)) + "）</div>")
+        c = cat_color.get(cat, "#111827")
+        html_lines.append("<div class='section-title'><span class='dot' style='background:" + esc(c) + "'></span>" + esc(cat) + "（" + str(len(lst)) + "）</div>")
         html_lines.append("<div class='grid'>")
         for i, it in enumerate(lst[:8], 1):
             html_lines.append(card(i, it))
@@ -414,7 +502,7 @@ def render_html(
     # Reddit section (no raw domain)
     if reddit:
         html_lines.append("<div class='section'>")
-        html_lines.append("<div class='section-title'>Reddit 热门</div>")
+        html_lines.append("<div class='section-title'><span class='dot' style='background:#111827'></span>Reddit 热门</div>")
         html_lines.append("<div class='grid'>")
         for i, r in enumerate(reddit[:10], 1):
             title = clip(str(r.get("title") or ""), 120)
@@ -423,7 +511,7 @@ def render_html(
             score = str(r.get("score") or "")
             comments = str(r.get("comments") or "")
             parts = []
-            parts.append("<div class='card'>")
+            parts.append("<div class='card' style='border-left:6px solid #111827'>")
             parts.append("<div class='row'>")
             parts.append(
                 "<div style='display:flex;gap:8px;flex-wrap:wrap'>"
@@ -514,7 +602,7 @@ def main() -> int:
                 published = str(pub) if isinstance(pub, (str, int, float)) else None
 
                 seen.add(url)
-                sc = score_item(host, title, published, cat)
+                sc = score_item(host, title, published, cat, desc)
                 raw.append(NewsItem(title=title, url=url, description=desc, hostname=host or "(unknown)", published=published, category=cat, score=sc))
 
             time.sleep(0.12)
