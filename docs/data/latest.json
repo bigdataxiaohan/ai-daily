@@ -1,0 +1,411 @@
+{
+  "date": "2026-02-12",
+  "runId": "2026-02-12_2112",
+  "label": "2026-02-12 21:12",
+  "meta": {
+    "generatedAt": "2026-02-12T21:12:47.802832+08:00",
+    "tz": "Asia/Shanghai",
+    "runId": "2026-02-12_2112",
+    "label": "2026-02-12 21:12",
+    "freshness": "pd",
+    "brave": {
+      "country": "CN",
+      "search_lang": "zh-hans"
+    },
+    "queriesRun": 25,
+    "subreddits": [
+      "LocalLLaMA",
+      "MachineLearning",
+      "OpenAI",
+      "AI_Agents"
+    ]
+  },
+  "items": [
+    {
+      "title": "Meta launches AI algorithm personalization feature for Threads",
+      "url": "https://www.cnbc.com/2026/02/11/meta-threads-dear-algo-ai-algorithm-personalization.html",
+      "description": "The feature is the latest example of how Meta is continuing to incorporate artificial intelligence into its various apps like Threads. The social media company on Tuesday also released AI features for its Facebook service that let users animate their profile photos and alter other images with the Meta AI digital assistant.",
+      "host": "www.cnbc.com",
+      "published": null,
+      "category": "产品发布/模型更新",
+      "score": 3.8
+    },
+    {
+      "title": "最新外国「自研」大模型，都是套壳国产？-36氪",
+      "url": "https://36kr.com/p/3534005522619273",
+      "description": "本周，知名 AI 代码工具 Cursor 发布了 <strong>2.0 版</strong>重大更新，推出了首个自家的代码模型 Composer，以及用于并行协作多个智能体的新界面。 · 新模型一发布，大家在祝贺 Cursor 终于「扬眉吐气...",
+      "host": "36kr.com",
+      "published": null,
+      "category": "产品发布/模型更新",
+      "score": 3.2
+    },
+    {
+      "title": "3B模型新SOTA，开源AI让日常调用不同大模型更简单-36氪",
+      "url": "https://36kr.com/p/2805167265494402",
+      "description": "与更大模型的缩放法则、...建一个大型图。 · 此外，团队正在开发多模态模型Octopus 3.5，能够处理视觉、音频和视频数据；完成开发后，将被纳入图形框架。 ... 本文来自微信公众号“量子位”（ID:QbitAI），作者：NEXA AI ，36氪经授权发布。...",
+      "host": "36kr.com",
+      "published": null,
+      "category": "产品发布/模型更新",
+      "score": 3.2
+    },
+    {
+      "title": "一文读懂谷歌最强大模型Gemini 3：下半年最大惊喜，谷歌王朝回归-36氪",
+      "url": "https://www.36kr.com/p/3559405464648835",
+      "description": "<strong>Gemini 3 不仅仅是一次版本号的更迭，它是对Scaling Law信仰的暴力重申，也是谷歌第一款真正意义上让OpenAI黯然失色的模型</strong>。 · 在这次发布会上，我们熟悉的谷歌王者归来。它不满足于在...",
+      "host": "www.36kr.com",
+      "published": null,
+      "category": "产品发布/模型更新",
+      "score": 3.2
+    },
+    {
+      "title": "Meta begins construction of $10 billion Indiana data center to boost AI capabilities | Reuters",
+      "url": "https://www.reuters.com/business/meta-begins-construction-10-billion-indiana-data-center-boost-ai-capabilities-2026-02-11/",
+      "description": "Feb 11 (Reuters) - Meta (META.O), opens new tab said on Wednesday it was breaking ground on a $10 billion data center in Indiana, as it races to secure the massive amounts of computing power needed to support its artificial intelligence ambitions.",
+      "host": "www.reuters.com",
+      "published": null,
+      "category": "产品发布/模型更新",
+      "score": 3.2
+    },
+    {
+      "title": "火爆的AI Agent，到底是什么？-36氪",
+      "url": "https://www.36kr.com/p/2762721770650374",
+      "description": "那时候，一个叫AutoGPT框架项目发布，项目利用大型语言模型，能自动把一个大任务拆分成小任务，并使用工具完成它们。",
+      "host": "www.36kr.com",
+      "published": null,
+      "category": "开源/工具爆款",
+      "score": 3.2
+    },
+    {
+      "title": "巨型AI模型时代已结束？这家AI初创公司再获2.5亿美元融资-36氪",
+      "url": "https://36kr.com/p/2251951926734467",
+      "description": "Cohere曾在2021年9月获得4000万美元A轮融资；2022年2月获得1.25亿美元B轮融资，投资者包括老虎环球基金、“AI教父” Geoffrey Hinton、斯坦福大学教授李飞飞、深度学习专家Pieter Abbeel等。在2022年10月，Cohere便开始与谷歌、Salesforce、Nvidia进行融资谈判，如今，Cohere获得巨额融资将继续与OpenAI展开激烈竞争，继续加快类似ChatGPT产品的技术创新和更新迭代。",
+      "host": "36kr.com",
+      "published": null,
+      "category": "融资/商业",
+      "score": 2.2
+    },
+    {
+      "title": "世界模型融资凶猛：它是AI的终局吗？-36氪",
+      "url": "https://36kr.com/p/3677119993176965",
+      "description": "宋亚宸：李飞飞最近刚融了一轮，估值已经达到了50亿美金。我悄悄看了他们的BP，里面提到李飞飞所定义的世界模型有三个主要应用场景：",
+      "host": "36kr.com",
+      "published": null,
+      "category": "融资/商业",
+      "score": 2.2
+    },
+    {
+      "title": "让用户无痛开发AI应用，袁进辉新公司「硅基流动」获近亿元天使+轮融资 | 36氪首发-36氪",
+      "url": "https://36kr.com/p/2844943140309637",
+      "description": "「智冉医疗」再获3亿元A+轮融资，2026计划启动规模化注册临床试验 | 36氪首发",
+      "host": "36kr.com",
+      "published": null,
+      "category": "融资/商业",
+      "score": 2.2
+    },
+    {
+      "title": "马斯克在SpaceX合并后和巨额IPO前重组xAI-36氪",
+      "url": "https://www.36kr.com/newsflashes/3679558411742854",
+      "description": "亿万富翁埃隆-马斯克将其人工智能初创公司xAI与他的火箭公司SpaceX合并，在计划进行可能是有史以来规模最大的首次公开募股之前，对该公司的管理层进行了全面调整。在周三宣布重组之前，这家成立三年的人工智能公司的几位联合创始最近相继离职，使得这家初创公司最初的12位联合创始人只剩下一半，在马斯克推动与OpenAI和谷歌展开全方位竞争的同时，也引发了有关稳定性的问题。（新浪财经）原文链接 · Seedance2.0“带飞”传媒主题基金，机构看",
+      "host": "www.36kr.com",
+      "published": null,
+      "category": "融资/商业",
+      "score": 2.2
+    },
+    {
+      "title": "不融资、无销售，却爆赚10亿美金，这家华人公司，估值1000亿-36氪",
+      "url": "https://36kr.com/p/3401377021249665",
+      "description": "这可能是整个AI圈最低调、也最赚钱的独角兽。 · 它没有融资，没有销售团队，也没有市场公关部门，却悄悄成了服务OpenAI、Anthropic、Google等一众明星公司。",
+      "host": "36kr.com",
+      "published": null,
+      "category": "融资/商业",
+      "score": 2.2
+    },
+    {
+      "title": "上海突然火了一个新品类，单店月收50万、复购率40%-36氪",
+      "url": "https://www.36kr.com/p/3444661109659272",
+      "description": "9点1氪｜顾客起诉胖东来免费筷子无标签；厦门航空通报“充电宝起火致航班延误”；良品铺子为“花生上树”AI广告致歉",
+      "host": "www.36kr.com",
+      "published": null,
+      "category": "融资/商业",
+      "score": 2.2
+    },
+    {
+      "title": "AI Bubble: Even Success Can Put Financial System at Risk - Bloomberg",
+      "url": "https://www.bloomberg.com/opinion/articles/2026-02-12/ai-bubble-even-success-can-put-financial-system-at-risk",
+      "description": "It’s hard not to marvel at how America’s capital markets have rallied to finance the artificial intelligence boom. If all goes as expected, “hyperscalers” such as Meta Platforms Inc. will invest more than $3 trillion through 2030 in data and power infrastructure.",
+      "host": "www.bloomberg.com",
+      "published": null,
+      "category": "融资/商业",
+      "score": 2.2
+    },
+    {
+      "title": "字节前高管创办的人工智能公司，2024年被资本疯抢-36氪",
+      "url": "https://36kr.com/p/3054205873148293",
+      "description": "据悉，加速进化创始人、...杂业务商业化的经验。 · 此外，一家AI智能硬件创业公司“吾云创新”在今年1月、9月连续有2笔融资进账，投资方分别是德联资本、绿洲资本Vitalbridge。 · 据了解，吾云创新创始人出自大疆，联合创始人周凌峰毕业于哈尔滨工业大学，曾担任云鲸中台负责人，主要负责产品测试，此...",
+      "host": "36kr.com",
+      "published": null,
+      "category": "融资/商业",
+      "score": 2.2
+    },
+    {
+      "title": "进入2026年，AI开始显露残酷一面-36氪",
+      "url": "https://36kr.com/p/3678080457794436",
+      "description": "我们关注过什么值得买、美图、钉钉等传统互联网产品分别在消费决策和图像领域的AI化，也看到了Manus、扣子、Lovart、秒哒、蚂蚁阿福等新产品在办公、设计、调研、应用生成、健康管理等方面的Agent化。",
+      "host": "36kr.com",
+      "published": null,
+      "category": "融资/商业",
+      "score": 2.2
+    },
+    {
+      "title": "字节大模型的收敛之年-36氪",
+      "url": "https://www.36kr.com/p/3680036065423233",
+      "description": "让AI学会方言，是为了让四川的老人、广东的阿姨能毫无门槛地用起来。这是字节在争夺「下一个10亿用户」的入场券。 · 方言降低了开口的门槛，而「Agent（智能体）」则解决动手的问题。 · 字节在这条坎上的爬升路径，清晰地写进了2025年的版本日历里，2025年6月11日，豆包1.6版本发布，谭待在发布会上，演示了一个让所有人都眼前一亮的场景：",
+      "host": "www.36kr.com",
+      "published": null,
+      "category": "融资/商业",
+      "score": 2.2
+    },
+    {
+      "title": "AI生成图片，哪家强？-36氪",
+      "url": "https://36kr.com/p/3443392428234886",
+      "description": "AI的渗透正无远弗届。正如很多插画网站，添加“AI生成”标签已是标配。 · 从艺术角度看，AI生成的图片，似乎争议依然巨大。但不得不承认的是，在工作和学习中，AI图片生成却是一个提高效率的好办法。",
+      "host": "36kr.com",
+      "published": null,
+      "category": "融资/商业",
+      "score": 2.2
+    },
+    {
+      "title": "全球人工智能立法动态与治理趋势：2026年政策全景扫描-36氪",
+      "url": "https://36kr.com/p/3678814524338697",
+      "description": "争夺人工智能所需数据和基础设施的竞赛，与制定有利于控制这场技术革命的法律和政策的竞赛并存。<strong>欧盟于 2024 年通过的《人工智能法案》</strong>标志着人工智能综合立法的个里程碑，但近...",
+      "host": "36kr.com",
+      "published": null,
+      "category": "监管/政策",
+      "score": 2.2
+    },
+    {
+      "title": "20天闪电问询，腾讯系AI芯片公司冲刺IPO-36氪",
+      "url": "https://36kr.com/p/3679533703343749",
+      "description": "根据规划，第五代AI芯片预计2027年推出，第六代产品预计2028年面世。这意味着燧原正在为未来三年的技术竞赛储备弹药。",
+      "host": "36kr.com",
+      "published": null,
+      "category": "监管/政策",
+      "score": 2.2
+    },
+    {
+      "title": "中芯国际: 逆势加码，国产AI芯“全村的希望”？-36氪",
+      "url": "https://36kr.com/p/3677502180647809",
+      "description": "当前阶段，对于先进制程的推进是“不计代价”的，“较低良率”的表现将直接影响公司毛利率。只要AI芯片能量产出来，毛利率的损失，也是现阶段可以容忍的，关键是要努力去满足下游国产AI芯片的需求量。",
+      "host": "36kr.com",
+      "published": null,
+      "category": "监管/政策",
+      "score": 2.2
+    },
+    {
+      "title": "英伟达被起诉，用盗版训练大模型成行业潜规则？-36氪",
+      "url": "https://36kr.com/p/3675402704380809",
+      "description": "<strong>“影子图书馆”非法存储并传播海量图书资源，愿意提供付费的“优先级下载通道”，虽满足了大模型开发者对优质数据的需求，但带来了极大的侵权风险</strong>；针对诉讼，英伟达提交了正...",
+      "host": "36kr.com",
+      "published": null,
+      "category": "安全/事故",
+      "score": 2.2
+    },
+    {
+      "title": "OpenClaw的“伊卡洛斯时刻”：一个神级Agent的疯狂与坠落-36氪",
+      "url": "https://36kr.com/p/3671207251768067",
+      "description": "这种“贾维斯（JARVIS）”式的体验，迅速点燃了技术圈的热情。前特斯拉AI负责人Andrej Karpathy等大咖的关注，更是起到了推波助澜的作用。但真正让其出圈的，是一场充满黑色幽默的“硬件带货”。 · 由于OpenClaw需要24小时在线待命，且强调数据本地化隐私，开发者们发现苹果的Mac Mini是运行该程序的最佳容器。这直接在社交媒体上引发了一场“买Mac Mini跑Clawdbot”的热潮。",
+      "host": "36kr.com",
+      "published": null,
+      "category": "安全/事故",
+      "score": 2.2
+    },
+    {
+      "title": "Search or Accelerate: Confidence-Switched Position Beam Search for Diffusion Language Models",
+      "url": "https://arxiv.org/html/2602.10953",
+      "description": "Diffusion Language Models (DLMs) <strong>generate text by iteratively denoising a masked sequence, repeatedly deciding which positions to commit at each step</strong>. Standard decoding follows a greedy rule, unmask the most confident positions, yet this local choice can lock the model into a suboptimal unmasking ...",
+      "host": "arxiv.org",
+      "published": null,
+      "category": "研究/论文",
+      "score": 0.4
+    },
+    {
+      "title": "[2602.11047] Embedding Inversion via Conditional Masked Diffusion Language Models",
+      "url": "https://arxiv.org/abs/2602.11047",
+      "description": "A masked diffusion language model is <strong>conditioned on the target embedding via adaptive layer normalization, requiring only 8 forward passes through a 78M parameter model with no access to the target encoder</strong>.",
+      "host": "arxiv.org",
+      "published": null,
+      "category": "研究/论文",
+      "score": 0.4
+    }
+  ],
+  "reddit": [
+    {
+      "subreddit": "LocalLLaMA",
+      "title": "Announcing LocalLlama discord server &amp; bot!",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1mpk2va/announcing_localllama_discord_server_bot/",
+      "score": 124,
+      "comments": 66
+    },
+    {
+      "subreddit": "LocalLLaMA",
+      "title": "#SaveLocalLLaMA",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r2e8mp/savelocalllama/",
+      "score": 547,
+      "comments": 71
+    },
+    {
+      "subreddit": "LocalLLaMA",
+      "title": "Z.ai said they are GPU starved, openly.",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r26zsg/zai_said_they_are_gpu_starved_openly/",
+      "score": 1242,
+      "comments": 203
+    },
+    {
+      "subreddit": "LocalLLaMA",
+      "title": "Unsloth just unleashed Glm 5! GGUF NOW!",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r2i4lw/unsloth_just_unleashed_glm_5_gguf_now/",
+      "score": 185,
+      "comments": 52
+    },
+    {
+      "subreddit": "LocalLLaMA",
+      "title": "GLM-5 scores 50 on the Intelligence Index and is the new open weights leader!",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r28xxz/glm5_scores_50_on_the_intelligence_index_and_is/",
+      "score": 518,
+      "comments": 129
+    },
+    {
+      "subreddit": "LocalLLaMA",
+      "title": "Lobotomy-less REAP by Samsung (REAM)",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r2moge/lobotomyless_reap_by_samsung_ream/",
+      "score": 74,
+      "comments": 28
+    },
+    {
+      "subreddit": "MachineLearning",
+      "title": "[D] Self-Promotion Thread",
+      "url": "https://www.reddit.com/r/MachineLearning/comments/1qtjnbc/d_selfpromotion_thread/",
+      "score": 6,
+      "comments": 23
+    },
+    {
+      "subreddit": "MachineLearning",
+      "title": "[D] Monthly Who's Hiring and Who wants to be Hired?",
+      "url": "https://www.reddit.com/r/MachineLearning/comments/1qrrayn/d_monthly_whos_hiring_and_who_wants_to_be_hired/",
+      "score": 12,
+      "comments": 7
+    },
+    {
+      "subreddit": "MachineLearning",
+      "title": "[D] Is a KDD publication considered prestigious for more theoretical results?",
+      "url": "https://www.reddit.com/r/MachineLearning/comments/1r2l6w4/d_is_a_kdd_publication_considered_prestigious_for/",
+      "score": 16,
+      "comments": 19
+    },
+    {
+      "subreddit": "MachineLearning",
+      "title": "[R] ICLR: Guess which peer review is human or AI?",
+      "url": "https://www.reddit.com/r/MachineLearning/comments/1r28sy7/r_iclr_guess_which_peer_review_is_human_or_ai/",
+      "score": 25,
+      "comments": 20
+    },
+    {
+      "subreddit": "MachineLearning",
+      "title": "[D] CVPR Score stats",
+      "url": "https://www.reddit.com/r/MachineLearning/comments/1r2pqeg/d_cvpr_score_stats/",
+      "score": 2,
+      "comments": 1
+    },
+    {
+      "subreddit": "MachineLearning",
+      "title": "[P] Graph Representation Learning Help",
+      "url": "https://www.reddit.com/r/MachineLearning/comments/1r2gpz6/p_graph_representation_learning_help/",
+      "score": 6,
+      "comments": 4
+    },
+    {
+      "subreddit": "OpenAI",
+      "title": "Sora 2 megathread (part 3)",
+      "url": "https://www.reddit.com/r/OpenAI/comments/1o8kmg9/sora_2_megathread_part_3/",
+      "score": 301,
+      "comments": 9720
+    },
+    {
+      "subreddit": "OpenAI",
+      "title": "AMA on our DevDay Launches",
+      "url": "https://www.reddit.com/r/OpenAI/comments/1o1j23g/ama_on_our_devday_launches/",
+      "score": 113,
+      "comments": 528
+    },
+    {
+      "subreddit": "OpenAI",
+      "title": "In the past week alone:",
+      "url": "https://www.reddit.com/r/OpenAI/comments/1r25bh7/in_the_past_week_alone/",
+      "score": 3483,
+      "comments": 464
+    },
+    {
+      "subreddit": "OpenAI",
+      "title": "'QuitGPT' Campaign Wants You to Ditch ChatGPT Over OpenAI's Ties to Trump, ICE",
+      "url": "https://www.reddit.com/r/OpenAI/comments/1r2n41e/quitgpt_campaign_wants_you_to_ditch_chatgpt_over/",
+      "score": 210,
+      "comments": 114
+    },
+    {
+      "subreddit": "OpenAI",
+      "title": "How is this not the biggest news right now?",
+      "url": "https://www.reddit.com/r/OpenAI/comments/1r2jdg4/how_is_this_not_the_biggest_news_right_now/",
+      "score": 266,
+      "comments": 34
+    },
+    {
+      "subreddit": "OpenAI",
+      "title": "Oh my God, the update that they did at 5.2 is absolutely insane.",
+      "url": "https://www.reddit.com/r/OpenAI/comments/1r221yu/oh_my_god_the_update_that_they_did_at_52_is/",
+      "score": 870,
+      "comments": 484
+    },
+    {
+      "subreddit": "AI_Agents",
+      "title": "Weekly Thread: Project Display",
+      "url": "https://www.reddit.com/r/AI_Agents/comments/1r22uuw/weekly_thread_project_display/",
+      "score": 1,
+      "comments": 10
+    },
+    {
+      "subreddit": "AI_Agents",
+      "title": "Weekly Thread: Project Display",
+      "url": "https://www.reddit.com/r/AI_Agents/comments/1qvu2c4/weekly_thread_project_display/",
+      "score": 5,
+      "comments": 23
+    },
+    {
+      "subreddit": "AI_Agents",
+      "title": "What are some typical, basic agentic usecases?",
+      "url": "https://www.reddit.com/r/AI_Agents/comments/1r2pcgb/what_are_some_typical_basic_agentic_usecases/",
+      "score": 14,
+      "comments": 9
+    },
+    {
+      "subreddit": "AI_Agents",
+      "title": "Is agentic scraping actually the endgame?",
+      "url": "https://www.reddit.com/r/AI_Agents/comments/1r2rf2r/is_agentic_scraping_actually_the_endgame/",
+      "score": 4,
+      "comments": 7
+    },
+    {
+      "subreddit": "AI_Agents",
+      "title": "Vibecoding might be one of the most underrated skill tests today",
+      "url": "https://www.reddit.com/r/AI_Agents/comments/1r2mdpu/vibecoding_might_be_one_of_the_most_underrated/",
+      "score": 10,
+      "comments": 16
+    },
+    {
+      "subreddit": "AI_Agents",
+      "title": "hitting limits with our AI driven web automation",
+      "url": "https://www.reddit.com/r/AI_Agents/comments/1r2ng93/hitting_limits_with_our_ai_driven_web_automation/",
+      "score": 5,
+      "comments": 11
+    }
+  ]
+}
